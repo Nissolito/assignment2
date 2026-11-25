@@ -34,7 +34,20 @@ public class CarController {
                 car.move();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
+
+                int panelWidth = frame.drawPanel.getWidth();
+                int panelHeight = frame.drawPanel.getHeight();
+
                 frame.drawPanel.moveit(x, y);
+
+                if (x < 0 || x > panelWidth - 115 || y < 0 || y > panelHeight - 55) {
+                    car.stopEngine();
+                    car.turnLeft();
+                    car.turnLeft();
+                    car.startEngine();
+                    
+                }
+                
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.revalidate();
                 frame.drawPanel.repaint();
@@ -54,6 +67,26 @@ public class CarController {
         double brake = ((double) amount) / 100;
         for (Car car : cars) {
             car.brake(brake);
+        }
+    }
+    void turnleft() {
+        for (Car car : cars) {
+            car.turnLeft();
+        }
+    }
+    void turnright() {
+        for (Car car : cars) {
+            car.turnRight();
+        }
+    }
+    void startAllCars() {
+        for (Car car : cars) {
+            car.startEngine();
+        }
+    }
+    void stopAllCars() {
+        for (Car car : cars) {
+            car.stopEngine();
         }
     }
 }
