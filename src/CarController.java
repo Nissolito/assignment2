@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -20,7 +21,6 @@ public class CarController {
     CarView frame;
     // TODO A list of cars, modify if needed
     ArrayList<Car> cars = new ArrayList<>();
-
     public void startTimer() {
         this.timer.start();
     }
@@ -30,26 +30,30 @@ public class CarController {
      */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            /*
             for (Car car : cars) {
                 car.move();
-                int x = (int) Math.round(car.getPosition().getX());
-                int y = (int) Math.round(car.getPosition().getY());
+                int x = (int) Math.round(car.getX());
+                int y = (int) Math.round(car.getY());
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.revalidate();
                 frame.drawPanel.repaint();
             }
-             */
         }
     }
 
     void gas(int amount) {
-        /* TODO adapt to your needs
+        /* TODO adapt to your needs*/
         double gas = ((double) amount) / 100;
         for (Car car : cars) {
             car.gas(gas);
         }
-        */
+
+    }
+    void brake(int amount) {
+        double brake = ((double) amount) / 100;
+        for (Car car : cars) {
+            car.brake(brake);
+        }
     }
 }
