@@ -133,7 +133,7 @@ public class CarTest {
         volvo.turnLeft();
         volvo.move();
         reportResult("After turnLeft, move goes +y",
-                close(volvo.getX(), 0) && close(volvo.getY(), 0.1));
+                close(volvo.getX(), 0) && close(volvo.getY(), -0.1));
     }
 
     private static void testTurnRightThenMove() {
@@ -142,7 +142,7 @@ public class CarTest {
         volvo.turnRight();
         volvo.move();
         reportResult("After turnRight, move goes -y",
-                close(volvo.getX(), 0) && close(volvo.getY(), -0.1));
+                close(volvo.getX(), 0) && close(volvo.getY(), 0.1));
     }
 
     private static void testTurnTwiceMovesBackwards() {

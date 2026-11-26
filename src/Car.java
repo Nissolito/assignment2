@@ -11,11 +11,13 @@ public abstract class Car implements Movable {
     private double y;
     private int direction;
 
-    public Car(int nrDoors, double enginePower, Color color, String modelName) {
+    public Car(int nrDoors, double enginePower, Color color, String modelName,int x,int y) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.x = x;
+        this.y = y;
         stopEngine();
     }
 
@@ -37,6 +39,10 @@ public abstract class Car implements Movable {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public String getModelName() {
+        return modelName;
     }
 
     public double getX() {
@@ -96,7 +102,7 @@ public abstract class Car implements Movable {
             }}}
 
     @Override 
-    public void turnLeft(){
+    public void turnRight(){
         direction += 90;
         if (direction >= 360) {
             direction -= 360;
@@ -104,7 +110,7 @@ public abstract class Car implements Movable {
     } 
     
     @Override
-    public void turnRight(){
+    public void turnLeft(){
         direction -= 90;
         if (direction < 0) {
             direction += 360;

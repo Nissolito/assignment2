@@ -30,7 +30,8 @@ public class CarController {
      */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
+            for (int i =0; i< cars.size(); i++) {
+                Car car = cars.get(i);
                 car.move();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
@@ -38,7 +39,7 @@ public class CarController {
                 int panelWidth = frame.drawPanel.getWidth();
                 int panelHeight = frame.drawPanel.getHeight();
 
-                frame.drawPanel.moveit(x, y);
+                frame.drawPanel.moveit(i, x, y);
 
                 if ((x < 0 && car.getDirection()== 180)|| (x > panelWidth - 115 && car.getDirection()== 0) || (y < 0 && car.getDirection()== 270) || (y > panelHeight - 55 && car.getDirection()== 90)) {
                     car.stopEngine();
@@ -87,6 +88,20 @@ public class CarController {
     void stopAllCars() {
         for (Car car : cars) {
             car.stopEngine();
+        }
+    }
+    void turboOn() {
+        for (Car car : cars) {
+            if (car instanceof Saab95 saab) {
+                saab.setTurboOn();
+            }
+        }
+    }
+    void turboOff() {
+        for (Car car : cars) {
+            if (car instanceof Saab95 saab) {
+                saab.setTurboOff();
+            }
         }
     }
 }
