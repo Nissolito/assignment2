@@ -40,7 +40,7 @@ public class CarController {
 
                 frame.drawPanel.moveit(x, y);
 
-                if (x < 0 || x > panelWidth - 115 || y < 0 || y > panelHeight - 55) {
+                if ((x < 0 && car.getDirection()== 180)|| (x > panelWidth - 115 && car.getDirection()== 0) || (y < 0 && car.getDirection()== 270) || (y > panelHeight - 55 && car.getDirection()== 90)) {
                     car.stopEngine();
                     car.turnLeft();
                     car.turnLeft();
