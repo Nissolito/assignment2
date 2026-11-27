@@ -89,6 +89,14 @@ public abstract class Car implements Movable {
         decrementSpeed(amount);
     }
 
+    public void hitBorder(int panelWidth, int panelHeight) {
+        if ((x < 0 && direction == 180) || (x > panelWidth - 115 && direction == 0) || (y < 0 && direction == 270) || (y > panelHeight - 55 && direction == 90)){
+            stopEngine();
+            turnLeft();
+            turnLeft();
+            startEngine();
+        }
+    }
     @Override 
     public void move(){
         switch (direction) {

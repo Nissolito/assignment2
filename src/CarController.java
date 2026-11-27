@@ -38,16 +38,17 @@ public class CarController {
 
                 int panelWidth = frame.drawPanel.getWidth();
                 int panelHeight = frame.drawPanel.getHeight();
+                car.hitBorder(panelWidth,panelHeight);
 
                 frame.drawPanel.moveit(i, x, y);
 
-                if ((x < 0 && car.getDirection()== 180)|| (x > panelWidth - 115 && car.getDirection()== 0) || (y < 0 && car.getDirection()== 270) || (y > panelHeight - 55 && car.getDirection()== 90)) {
+                /*if ((x < 0 && car.getDirection()== 180)|| (x > panelWidth - 115 && car.getDirection()== 0) || (y < 0 && car.getDirection()== 270) || (y > panelHeight - 55 && car.getDirection()== 90)) {
                     car.stopEngine();
                     car.turnLeft();
                     car.turnLeft();
                     car.startEngine();
-                    
-                }
+
+                }*/
                 
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.revalidate();
